@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/help/" />
+  <Folder Name="/help/mapping/">
+    <Project Path="Mapping/Mapping.csproj" Id="73c2c833-9230-42a0-a7c0-b750eedb4ac4" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/" />
+  <Folder Name="/src/Core/Application/">
+    <Project Path="TestApplication/TestApplication.csproj" Id="b1218767-a1bc-4fd1-8ad2-59f88277793c" />
+  </Folder>
+  <Folder Name="/src/Core/Domain/">
+    <Project Path="Domains/Domains.shproj" Id="43ea0e14-b52a-419d-bbf9-95d93ae5303c" />
+    <Project Path="TestDomain/TestDomain.csproj" Id="a4e4480b-25ad-4037-998a-91b1ed0c7e0c" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="Auth/Auth.csproj" Id="c3d241c1-9efd-4533-9477-674a691aebc7" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/Persistance/">
+    <Project Path="Persistance/Persistance.shproj" Id="970a6e40-50a0-4a9b-a9ea-3f9699aea6e7" />
+    <Project Path="TestPersistance/TestPersistance.csproj" />
+  </Folder>
+  <Folder Name="/src/Presentation/" />
+</Solution>
