@@ -1,0 +1,6 @@
+﻿----------PostgreSQL-----------
+Scaffold-DbContext "Host=192.168.27.9;Database=tu_base_datos;Username=;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -f -noPluralize -OutputDir PostgreSQL -Context _DBContext -Tables public.tu_tabla
+
+Nota1: Si se desea generar el mapeo de tablas en específico, se debe agregar la opción "-Tables" y a continuación poner los nombres de las tablas separadas por comas (,).
+Nota2: En PostgreSQL se recomienda incluir el esquema (por defecto suele ser 'public') seguido de un punto y el nombre de la tabla ej: "public.mi_tabla, esquemacustom.otra_tabla".
+Nota3: Verificar si el nombre de las tablas está en minúsculas en la BD, ya que PostgreSQL es sensible a esto.

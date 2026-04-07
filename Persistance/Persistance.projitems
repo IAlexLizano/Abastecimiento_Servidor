@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>970a6e40-50a0-4a9b-a9ea-3f9699aea6e7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Persistance</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\RoleConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\UserAccountConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\UserRoleConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\ServiceConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\RoleMenuConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\MenuConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\AccessControlConfig.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,408 @@
+# ==========================================
+# .NET / C# / Visual Studio
+# ==========================================
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.json
+
+# Visual Studio specific files
+*.userprefs
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+*.code-workspace
+
+# Rider
+.idea/
+*.sln.iml
+*.swp
+*.swo
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test Results
+[Tt]estResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# NUnit / xUnit
+*.nunit
+
+# Build Log Files
+BuildLog.htm
+*.log
+
+# NuGet Package Manager
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Entity Framework
+*.edmx.diagram
+*.edmx
+*.edmx.sql
+
+# Local Database (SqlServer)
+*.mdf
+*.ldf
+*.ndf
+
+# Binaries for programs/plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+*.app
+*.ipa
+*.apk
+
+# ==========================================
+# IDE Specific
+# ==========================================
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+
+# MonoDevelop / Xamarin Studio
+.monodevelop/
+.msbuild.log
+.msbuild.err
+.msbuild.warn
+
+# ==========================================
+# Application Specific
+# ==========================================
+
+# appsettings with sensitive data
+appsettings.*.json
+!appsettings.Development.json
+!appsettings.Production.json
+appsettings.Local.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Coverage
+coverage/
+.coverage
+.coveragerc
+*.cover
+
+# ==========================================
+# OS Specific
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+
+# ==========================================
+# Git Specific
+# ==========================================
+
+# Local git configuration
+.git/
+.gitconfig
+
+# ==========================================
+# Temporary Files
+# ==========================================
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.~*
+
+# Editor backups
+*.bak
+*.backup
+
+# Patch files
+*.patch
+*.rej
+
+# ==========================================
+# Certificates & Keys (SECURITY)
+# ==========================================
+
+# SSL Certificates
+*.pfx
+*.pem
+*.crt
+*.cer
+*.key
+*.p12
+*.p7b
+
+# Private keys
+private/
+secrets/
+.secrets/
+**/secrets/**
+
+# ==========================================
+# CI/CD
+# ==========================================
+
+# Azure Pipelines
+.azure-pipelines/
+azure-pipelines.yml
+
+# GitHub Actions (if using local runs)
+.github/workflows/local/
+
+# GitLab CI
+.gitlab-ci.yml
+
+# Docker (local builds)
+docker-compose.local.yml
+Dockerfile.local
+
+# ==========================================
+# Package Managers
+# ==========================================
+
+# npm
+node_modules/
+npm-debug.log
+.npmrc
+package-lock.json
+
+# yarn
+yarn.lock
+.yarn/cache/
+
+# NuGet
+packages/
+.nuget/
+nuget.config
+**/packages.config
+
+# ==========================================
+# Database
+# ==========================================
+
+# SQL Server
+*.mdf
+*.ldf
+*.ndf
+*.log
+App_Data/
+*.MDF
+*.LDF
+
+# Migration history
+**/Migrations/\*[0-9]*_*.cs
+!**/Migrations/\*__Initial.cs
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+
+# ==========================================
+# Build Artifacts
+# ==========================================
+
+# Publish results
+PublishProfiles/
+publish/
+PublishOutput/
+bin/
+obj/
+
+# Deployment packages
+*.zip
+*.tar.gz
+*.rar
+
+# ==========================================
+# Test Specific
+# ==========================================
+
+# Test Results
+TestResults/
+*.trx
+coverage.xml
+coverage.json
+OpenCover/
+
+# Coverage Reports
+coverage/
+*.coverage
+*.coveragexml
+
+# ==========================================
+# IDE Generated Files
+# ==========================================
+
+# ReSharper
+_ReSharper*/
+*.resharper
+*.resharper.user
+.resharper
+
+# StyleCop
+StyleCopViolations.xml
+
+# FxCop
+FxCopResults.xml
+
+# Code Analysis
+CodeAnalysisLog.xml
+
+# ==========================================
+# Project Specific
+# ==========================================
+
+# Local development overrides
+local.settings.json
+launchSettings.json
+
+# Temporary build outputs
+out/
+dist/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# ==========================================
+# WebAssembly (if using Blazor)
+# ==========================================
+
+# Blazor WebAssembly
+wwwroot/dist/
+.blazor/
+
+# ==========================================
+# Azure Specific
+# ==========================================
+
+# Azure Function App
+azure-functions-core-tools/
+func_extensions_csharp/
+.python_packages/
+
+# Azure CLI
+.azure/
+
+# ==========================================
+# Documentation Generated Files
+# ==========================================
+
+# XML Documentation
+docs/_build/
+docs/.doctrees/
+site/
+mkdocs/
+
+# Markdown Documentation Files
+*.md
+
+# Documentation directories
+docs/
+documentation/
+**/*.md.backup
+**/*.md.tmp
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+
+# VS Code settings (workspace)
+.vscode/settings.json
+!.vscode/settings.json.example
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# SASS
+.sass-cache/
+*.css.map
+
+# Node (if any frontend tooling)
+node_modules/
+dist/
+build/
+
+# Configuration overrides
+web.config.local
+app.config.local
+
+# ==========================================
+# End of .gitignore
+# ==========================================

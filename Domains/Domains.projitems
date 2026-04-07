@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>43ea0e14-b52a-419d-bbf9-95d93ae5303c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Domains</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\AccessControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Role.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\RoleMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Service.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\UserAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\UserRole.cs" />
+  </ItemGroup>
+</Project>
