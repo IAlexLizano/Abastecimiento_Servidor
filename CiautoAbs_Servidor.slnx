@@ -4,7 +4,9 @@
     <Project Path="Mapping/Mapping.csproj" Id="73c2c833-9230-42a0-a7c0-b750eedb4ac4" />
   </Folder>
   <Folder Name="/src/" />
-  <Folder Name="/src/Core/" />
+  <Folder Name="/src/Core/">
+    <Project Path="AuthApplication/AuthApplication.csproj" Id="e08a01a9-e9b4-4145-b125-6d48c45ca1d2" />
+  </Folder>
   <Folder Name="/src/Core/Application/">
     <Project Path="TestApplication/TestApplication.csproj" Id="b1218767-a1bc-4fd1-8ad2-59f88277793c" />
   </Folder>
@@ -14,10 +16,14 @@
   </Folder>
   <Folder Name="/src/Infrastructure/">
     <Project Path="Auth/Auth.csproj" Id="c3d241c1-9efd-4533-9477-674a691aebc7" />
+    <Project Path="Shared/Shared.csproj" Id="91a9d9f0-fb30-4442-b548-e90efe556131" />
   </Folder>
   <Folder Name="/src/Infrastructure/Persistance/">
     <Project Path="Persistance/Persistance.shproj" Id="970a6e40-50a0-4a9b-a9ea-3f9699aea6e7" />
     <Project Path="TestPersistance/TestPersistance.csproj" />
   </Folder>
-  <Folder Name="/src/Presentation/" />
+  <Folder Name="/src/Presentation/">
+    <Project Path="MS_AuthCommand/MS_AuthCommand.csproj" Id="d05cd409-d532-4807-b969-11ab12c4e197" />
+    <Project Path="MS_AuthQuery/MS_AuthQuery.csproj" Id="7c9efae6-453f-4106-b99c-aa409ec04dc7" />
+  </Folder>
 </Solution>
