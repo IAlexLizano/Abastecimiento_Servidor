@@ -1,10 +1,13 @@
 using Auth.Context;
-using Auth.DTOs;
-using Auth.Exceptions;
 using Auth.Interfaces;
-using Auth.Wrappers;
+using AuthApplication.DTOs;
+using AuthApplication.Interfaces;
 using Domains.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Shared.Application.Exceptions;
+using Shared.Application.Wrappers;
+using Shared.Global;
 
 namespace Auth.Services
 {
@@ -14,8 +17,11 @@ namespace Auth.Services
     public class LoginService : ILoginService
     {
         private readonly ApplicationContext _dbContext;
+        private readonly IConfiguration _configuration;
         private readonly IAccountService _accountService;
         private readonly IHashingService _hashingService;
+        //private readonly IGPGService _GPGService;
+        private readonly InformationSession _global;
 
         public LoginService(
             ApplicationContext dbContext,
@@ -30,7 +36,7 @@ namespace Auth.Services
         public async Task<Response<LoginResponseDto>> LoginAsync(LoginRequestDto request)
         {
             if (string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.Password))
-                throw new ValidationException("Usuario y contraseña son requeridos");
+                throw new ValidationException();
 
             var usuario = await _dbContext.Set<UserAccount>()
                 .Include(u => u.UserRole)
@@ -94,7 +100,7 @@ namespace Auth.Services
             return new Response<LoginResponseDto>(response, "Login exitoso");
         }
 
-        public async Task<Response<List<MenuItemResponseDto>>> GetMenuByUserAsync(int userId)
+        public async Task<Response<List<MenuItemResponseDto>>> GetMenuByUserAsync()
         {
             var usuario = await _dbContext.Set<UserAccount>()
                 .AsNoTracking()
@@ -102,11 +108,9 @@ namespace Auth.Services
                     .ThenInclude(ur => ur.Role)
                         .ThenInclude(r => r.RoleMenu)
                             .ThenInclude(rm => rm.Menu)
-                .FirstOrDefaultAsync(u => u.UserId == userId);
-
-            if (usuario == null)
-                throw new ApiException("Usuario no encontrado");
-
+                .FirstOrDefaultAsync(u => u.Username.ToLower().Equals(_global.UserName.ToLower())) 
+                ?? throw new ApiException("Usuario no encontrado");
+            
             if (!usuario.IsActive)
                 throw new ApiException("El usuario se encuentra inactivo");
 

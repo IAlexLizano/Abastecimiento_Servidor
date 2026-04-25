@@ -22,9 +22,7 @@ namespace Auth.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Cargar configuraciones desde Persistance (única fuente de verdad)
-            modelBuilder.ApplyConfigurationsFromAssembly(
-                typeof(Persistance.Configuration.UserAccountConfig).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
     public class ApplicationContext(DbContextOptions<ApplicationContext> options) : BaseContext(options)

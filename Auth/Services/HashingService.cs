@@ -1,4 +1,4 @@
-using Auth.Interfaces;
+using AuthApplication.Interfaces;
 
 namespace Auth.Services
 {

@@ -1,10 +1,10 @@
 using Auth.Context;
-using Auth.DTOs;
-using Auth.Exceptions;
-using Auth.Interfaces;
-using Auth.Wrappers;
+using AuthApplication.DTOs;
+using AuthApplication.Interfaces;
 using Domains.Entities;
 using Microsoft.EntityFrameworkCore;
+using Shared.Application.Exceptions;
+using Shared.Application.Wrappers;
 using System.Security.Claims;
 
 namespace Auth.Services
@@ -28,7 +28,7 @@ namespace Auth.Services
         public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.User))
-                throw new ValidationException("El nombre de usuario es requerido");
+                throw new ValidationException();
 
             var usuario = await _dbContext.Set<UserAccount>()
                 .AsNoTracking()

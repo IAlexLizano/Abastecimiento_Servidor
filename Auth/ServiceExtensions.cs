@@ -1,8 +1,8 @@
 ﻿using Auth.Context;
-using Auth.DTOs;
 using Auth.Interfaces;
 using Auth.Services;
-using Domains.Entities;
+using AuthApplication.DTOs;
+using AuthApplication.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +32,13 @@ namespace Auth
 
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));
+
+            var connectionString = configuration.GetConnectionString("DefaultConnection")
+                ?? throw new InvalidOperationException($"Connection string no encontrado");
+
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseNpgsql(connectionString,
+                    b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
 
             // Configurar JWT Settings
             services.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
@@ -103,29 +110,10 @@ namespace Auth
                 });
 
             // Registrar servicios
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IHashingService, HashingService>();
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<ILoginService, LoginService>();
-        }
-
-        /// <summary>
-        /// Agrega el DbContext de autenticación
-        /// </summary>
-        public static void AddAuthenticationDbContext(
-            this IServiceCollection services,
-            IConfiguration configuration,
-            string connectionStringName = "DefaultConnection")
-        {
-            if (services == null)
-                throw new ArgumentNullException(nameof(services));
-
-            var connectionString = configuration.GetConnectionString(connectionStringName)
-                ?? throw new InvalidOperationException($"Connection string '{connectionStringName}' no encontrado");
-
-            services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(connectionString,
-                    b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
+            services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IHashingService, HashingService>();
+            services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<ILoginService, LoginService>();
         }
     }
 }
