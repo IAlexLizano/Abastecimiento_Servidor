@@ -19,15 +19,22 @@ namespace Shared.Global
                 foreach (var itm in tokenDecode.Claims.Where(x => x.Type.Equals(ClaimTypes.Role)))
                 {
                     if (roleName.IsNullOrEmpty())
-                        roleName = itm.Value;
-                    informationSession.Role = itm.Value.ConvertObjectToInt();
+                    {
+                        // Extract numeric part from role value (e.g., "1-ADMINISTRADOR" -> "1")
+                        var roleIdStr = System.Text.RegularExpressions.Regex.Match(itm.Value, @"^\d+").Value;
+                        if (!string.IsNullOrEmpty(roleIdStr))
+                            informationSession.Role = roleIdStr.ConvertObjectToInt();
+
+                        // Extract text part from role value (e.g., "1-ADMINISTRADOR" -> "ADMINISTRADOR")
+                        roleName = System.Text.RegularExpressions.Regex.Replace(itm.Value, @"^\d+\-?", "");
+                    }
                 }
 
                 informationSession.RoleName = roleName.ReplaceIfNullOrEmpty("none");
                 informationSession.FirstName = (tokenDecode.Claims.FirstOrDefault(x => x.Type.Equals(JwtRegisteredClaimNames.Name))?.Value).ReplaceIfNullOrEmpty("[ANONIMO]");
                 informationSession.UserName = (tokenDecode.Claims.FirstOrDefault(x => x.Type.Equals(JwtRegisteredClaimNames.NameId))?.Value).ReplaceIfNullOrEmpty();
                 informationSession.IdCard = (tokenDecode.Claims.FirstOrDefault(x => x.Type.Equals(JwtRegisteredClaimNames.Sid))?.Value).ReplaceIfNullOrEmpty();
-                informationSession.UserId = (tokenDecode.Claims.FirstOrDefault(x => x.Type.Equals("uid"))?.Value).ReplaceIfNullOrEmpty("0").ConvertObjectToInt();
+                informationSession.UserId = (tokenDecode.Claims.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value).ReplaceIfNullOrEmpty("0").ConvertObjectToInt();
             }
             await Task.CompletedTask;
         }
