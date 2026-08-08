@@ -8,22 +8,22 @@ namespace Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<RoleMenu> builder)
         {
-            builder.HasKey(e => new { e.MenuId, e.RoleId }).HasName("role_menu_pkey");
+            builder.HasKey(e => new { e.IdMenu, e.IdRole }).HasName("role_menu_pkey");
 
             builder.ToTable("role_menu");
 
-            builder.Property(e => e.MenuId).HasColumnName("menu_id");
-            builder.Property(e => e.RoleId).HasColumnName("role_id");
+            builder.Property(e => e.IdMenu).HasColumnName("id_menu");
+            builder.Property(e => e.IdRole).HasColumnName("id_role");
             builder.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
 
-            builder.HasOne(d => d.Menu).WithMany(p => p.RoleMenu)
-                .HasForeignKey(d => d.MenuId)
+            builder.HasOne(d => d.IdMenuNavigation).WithMany(p => p.RoleMenu)
+                .HasForeignKey(d => d.IdMenu)
                 .HasConstraintName("fk_role_menu_menu");
 
-            builder.HasOne(d => d.Role).WithMany(p => p.RoleMenu)
-                .HasForeignKey(d => d.RoleId)
+            builder.HasOne(d => d.IdRoleNavigation).WithMany(p => p.RoleMenu)
+                .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("fk_role_menu_role");
         }
     }

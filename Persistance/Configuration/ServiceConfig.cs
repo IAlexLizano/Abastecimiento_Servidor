@@ -8,11 +8,13 @@ namespace Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Service> builder)
         {
-            builder.HasKey(e => e.ServiceId).HasName("service_pkey");
+            builder.HasKey(e => e.IdService).HasName("service_pkey");
 
             builder.ToTable("service");
 
-            builder.Property(e => e.ServiceId).HasColumnName("service_id");
+            builder.Property(e => e.IdService)
+                .HasDefaultValueSql("nextval('service_service_id_seq'::regclass)")
+                .HasColumnName("id_service");
             builder.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");

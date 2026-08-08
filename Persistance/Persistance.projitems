@@ -9,8 +9,23 @@
     <Import_RootNamespace>Persistance</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\BoxConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\BoxProductDetailConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\CardboardConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\BoxInspectionTeamMemberConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\ComponentConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\ContainerConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\EngineeringIssueConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\LotConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\ModelConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\PalletConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\RecipeConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\SupplyConfig.cs" />
+    <Compile Include="..\Persistance\Configuration\BoxInspectionTeamConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\StoreConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\WorkStationConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration\RoleConfig.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Configuration\UserAccountConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\RegisteredUserConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration\UserRoleConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration\ServiceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration\RoleMenuConfig.cs" />

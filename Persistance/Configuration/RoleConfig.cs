@@ -8,13 +8,15 @@ namespace Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.HasKey(e => e.RoleId).HasName("role_pkey");
+            builder.HasKey(e => e.IdRole).HasName("role_pkey");
 
             builder.ToTable("role");
 
             builder.HasIndex(e => e.Name, "role_name_key").IsUnique();
 
-            builder.Property(e => e.RoleId).HasColumnName("role_id");
+            builder.Property(e => e.IdRole)
+                .HasDefaultValueSql("nextval('role_role_id_seq'::regclass)")
+                .HasColumnName("id_role");
             builder.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");

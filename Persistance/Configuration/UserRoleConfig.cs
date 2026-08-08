@@ -8,12 +8,12 @@ namespace Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            builder.HasKey(e => new { e.RoleId, e.UserId }).HasName("user_role_pkey");
+            builder.HasKey(e => new { e.IdRole, e.IdUser }).HasName("user_role_pkey");
 
             builder.ToTable("user_role");
 
-            builder.Property(e => e.RoleId).HasColumnName("role_id");
-            builder.Property(e => e.UserId).HasColumnName("user_id");
+            builder.Property(e => e.IdRole).HasColumnName("id_role");
+            builder.Property(e => e.IdUser).HasColumnName("id_user");
             builder.Property(e => e.AssignedAt)
                 .HasDefaultValueSql("CURRENT_DATE")
                 .HasColumnName("assigned_at");
@@ -21,12 +21,12 @@ namespace Persistance.Configuration
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
 
-            builder.HasOne(d => d.Role).WithMany(p => p.UserRole)
-                .HasForeignKey(d => d.RoleId)
+            builder.HasOne(d => d.IdRoleNavigation).WithMany(p => p.UserRole)
+                .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("fk_user_role_role");
 
-            builder.HasOne(d => d.User).WithMany(p => p.UserRole)
-                .HasForeignKey(d => d.UserId)
+            builder.HasOne(d => d.IdUserNavigation).WithMany(p => p.UserRole)
+                .HasForeignKey(d => d.IdUser)
                 .HasConstraintName("fk_user_role_user");
         }
     }

@@ -2,7 +2,7 @@
 
 public partial class Service
 {
-    public int ServiceId { get; set; }
+    public int IdService { get; set; }
 
     public string Name { get; set; } = null!;
 

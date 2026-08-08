@@ -10,11 +10,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Entities\AccessControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Box.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BoxInspectionTeam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BoxInspectionTeamMember.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BoxProductDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Cardboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Container.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\EngineeringIssue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Lot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Model.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Pallet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\RegisteredUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Role.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\RoleMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Service.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entities\UserAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Recipe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Store.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Supply.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\UserRole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\WorkStation.cs" />
   </ItemGroup>
 </Project>

@@ -4,17 +4,19 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistance.Configuration
 {
-    public class UserAccountConfig : IEntityTypeConfiguration<UserAccount>
+    public class RegisteredUserConfig : IEntityTypeConfiguration<RegisteredUser>
     {
-        public void Configure(EntityTypeBuilder<UserAccount> builder)
+        public void Configure(EntityTypeBuilder<RegisteredUser> builder)
         {
-            builder.HasKey(e => e.UserId).HasName("user_account_pkey");
+            builder.HasKey(e => e.IdUser).HasName("user_account_pkey");
 
-            builder.ToTable("user_account");
+            builder.ToTable("registered_user");
 
             builder.HasIndex(e => e.Username, "user_account_username_key").IsUnique();
 
-            builder.Property(e => e.UserId).HasColumnName("user_id");
+            builder.Property(e => e.IdUser)
+                .HasDefaultValueSql("nextval('user_account_user_id_seq'::regclass)")
+                .HasColumnName("id_user");
             builder.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_DATE")
                 .HasColumnName("created_at");
@@ -27,6 +29,9 @@ namespace Persistance.Configuration
             builder.Property(e => e.IdCard)
                 .HasMaxLength(13)
                 .HasColumnName("id_card");
+            builder.Property(e => e.IdStation)
+                .HasDefaultValue(1)
+                .HasColumnName("id_station");
             builder.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
@@ -45,6 +50,10 @@ namespace Persistance.Configuration
             builder.Property(e => e.Username)
                 .HasMaxLength(500)
                 .HasColumnName("username");
+
+            builder.HasOne(d => d.IdStationNavigation).WithMany(p => p.RegisteredUser)
+                .HasForeignKey(d => d.IdStation)
+                .HasConstraintName("registered_user_work_station_fk");
         }
     }
 }

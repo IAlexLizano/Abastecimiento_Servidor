@@ -2,13 +2,13 @@
 
 public partial class RoleMenu
 {
-    public int MenuId { get; set; }
+    public int IdMenu { get; set; }
 
-    public int RoleId { get; set; }
+    public int IdRole { get; set; }
 
     public bool? IsActive { get; set; }
 
-    public virtual Menu Menu { get; set; } = null!;
+    public virtual Menu IdMenuNavigation { get; set; } = null!;
 
-    public virtual Role Role { get; set; } = null!;
+    public virtual Role IdRoleNavigation { get; set; } = null!;
 }

@@ -8,25 +8,27 @@ namespace Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<AccessControl> builder)
         {
-            builder.HasKey(e => e.AccessId).HasName("access_control_pkey");
+            builder.HasKey(e => e.IdAccess).HasName("access_control_pkey");
 
             builder.ToTable("access_control");
 
-            builder.HasIndex(e => new { e.RoleId, e.ServiceId }, "uq_role_service").IsUnique();
+            builder.HasIndex(e => new { e.IdRole, e.IdService }, "uq_role_service").IsUnique();
 
-            builder.Property(e => e.AccessId).HasColumnName("access_id");
+            builder.Property(e => e.IdAccess)
+                .HasDefaultValueSql("nextval('access_control_access_id_seq'::regclass)")
+                .HasColumnName("id_access");
+            builder.Property(e => e.IdRole).HasColumnName("id_role");
+            builder.Property(e => e.IdService).HasColumnName("id_service");
             builder.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
-            builder.Property(e => e.RoleId).HasColumnName("role_id");
-            builder.Property(e => e.ServiceId).HasColumnName("service_id");
 
-            builder.HasOne(d => d.Role).WithMany(p => p.AccessControl)
-                .HasForeignKey(d => d.RoleId)
+            builder.HasOne(d => d.IdRoleNavigation).WithMany(p => p.AccessControl)
+                .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("fk_access_role");
 
-            builder.HasOne(d => d.Service).WithMany(p => p.AccessControl)
-                .HasForeignKey(d => d.ServiceId)
+            builder.HasOne(d => d.IdServiceNavigation).WithMany(p => p.AccessControl)
+                .HasForeignKey(d => d.IdService)
                 .HasConstraintName("fk_access_service");
         }
     }
