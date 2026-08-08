@@ -1,21 +1,21 @@
 using AuthApplication.DTOs;
 using Shared.Application.Wrappers;
 
-namespace Auth.Interfaces
+namespace AuthApplication.Interfaces
 {
     /// <summary>
     /// Interfaz para el servicio de login
     /// </summary>
-    public interface ILoginService
+    public interface ILoginRepository
     {
         /// <summary>
         /// Realiza el inicio de sesión del usuario
         /// </summary>
-        Task<Response<LoginResponseDto>> LoginAsync(LoginRequestDto request);
+        Task<LoginResponseDto> LoginAsync(LoginRequestDto request);
 
         /// <summary>
         /// Obtiene el menú para un usuario específico
         /// </summary>
-        Task<Response<List<MenuItemResponseDto>>> GetMenuByUserAsync();
+        Task<List<MenuItemResponseDto>> GetMenuByUserAsync();
     }
 }

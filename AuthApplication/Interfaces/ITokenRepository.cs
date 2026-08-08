@@ -5,7 +5,7 @@ namespace AuthApplication.Interfaces
     /// <summary>
     /// Interfaz para generación y validación de tokens JWT
     /// </summary>
-    public interface ITokenService
+    public interface ITokenRepository
     {
         /// <summary>
         /// Genera un token JWT con los claims proporcionados

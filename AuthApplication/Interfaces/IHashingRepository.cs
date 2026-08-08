@@ -3,7 +3,7 @@ namespace AuthApplication.Interfaces
     /// <summary>
     /// Interfaz para servicios de hash de contraseñas
     /// </summary>
-    public interface IHashingService
+    public interface IHashingRepository
     {
         /// <summary>
         /// Genera un hash de una contraseña

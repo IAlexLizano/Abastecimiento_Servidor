@@ -6,7 +6,7 @@ namespace AuthApplication.Interfaces
     /// <summary>
     /// Interfaz para el servicio de cuenta y generación de tokens JWT
     /// </summary>
-    public interface IAccountService
+    public interface IAccountRepository
     {
         /// <summary>
         /// Autentica un usuario y genera un token JWT
