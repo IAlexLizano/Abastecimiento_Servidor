@@ -9,7 +9,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MediatR" Version="14.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -17,7 +16,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\AuthApplication\AuthApplication.csproj" />
-		<ProjectReference Include="..\Auth\Auth.csproj" />
+		<ProjectReference Include="..\Identity\Identity.csproj" />
 		<ProjectReference Include="..\Shared\Shared.csproj" />
 	</ItemGroup>
 
