@@ -32,6 +32,14 @@ bld/
 *.userosscache
 *.sln.docstates
 
+# .NET Tooling & Local Configurations
+.config/dotnet-tools.json
+dotnet-tools.json
+**/dotnet-tools.json
+.dotnet/
+launchSettings.json
+**/Properties/launchSettings.json
+
 # Visual Studio Code
 *.code-workspace
 
