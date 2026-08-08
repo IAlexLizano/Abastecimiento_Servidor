@@ -1,5 +1,5 @@
 using AuthApplication;
-using Auth;
+using Identity;
 using Shared;
 using MS_AuthCommand.Extensions;
 
@@ -41,11 +41,21 @@ builder.Services.AddSwaggerGen(options => {
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("NuevaPolitica", app =>
+    options.AddPolicy("NuevaPolitica", policy =>
     {
-        app.AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyMethod();
+        var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+        if (allowedOrigins != null && allowedOrigins.Length > 0)
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        }
+        else
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        }
     });
 });
 
