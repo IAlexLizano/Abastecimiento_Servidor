@@ -1,4 +1,4 @@
-﻿using Auth.Interfaces;
+﻿using AuthApplication.Interfaces;
 using AuthApplication.DTOs;
 using AutoMapper;
 using MediatR;
@@ -16,10 +16,10 @@ namespace AuthApplication.Features.Commands
     public class LoginCommandHandler : IRequestHandler<LoginCommand, Response<LoginResponseDto>>
     {
         private readonly IMapper _mapper;
-        private readonly ILoginService _loginService;
+        private readonly ILoginRepository _loginService;
         private readonly IConfiguration _configuration;
 
-        public LoginCommandHandler(IMapper mapper, ILoginService loginService, IConfiguration configuration)
+        public LoginCommandHandler(IMapper mapper, ILoginRepository loginService, IConfiguration configuration)
         {
             _mapper = mapper;
             _loginService = loginService;
@@ -29,9 +29,9 @@ namespace AuthApplication.Features.Commands
         public async Task<Response<LoginResponseDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             LoginRequestDto login = _mapper.Map<LoginRequestDto>(request);
-            Response<LoginResponseDto> respuesta = await _loginService.LoginAsync(login);
+            var response = await _loginService.LoginAsync(login);
 
-            return respuesta;
+            return new Response<LoginResponseDto>(response, "Inicio de sesión éxitoso");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Auth.Interfaces;
+﻿using AuthApplication.Interfaces;
 using AuthApplication.DTOs;
 using AutoMapper;
 using MediatR;
@@ -14,10 +14,10 @@ namespace AuthApplication.Features.Queries
     public class ObtainMenuQueryHandler : IRequestHandler<ObtainMenuQuery, Response<List<MenuItemResponseDto>>>
     {
         private readonly IMapper _mapper;
-        private readonly ILoginService _loginServices;
+        private readonly ILoginRepository _loginServices;
         private readonly IConfiguration _configuration;
 
-        public ObtainMenuQueryHandler(IMapper mapper, ILoginService loginServices, IConfiguration configuration)
+        public ObtainMenuQueryHandler(IMapper mapper, ILoginRepository loginServices, IConfiguration configuration)
         {
             _mapper = mapper;
             _loginServices = loginServices;
@@ -26,9 +26,9 @@ namespace AuthApplication.Features.Queries
 
         public async Task<Response<List<MenuItemResponseDto>>> Handle(ObtainMenuQuery request, CancellationToken cancellationToken)
         {
-            Response<List<MenuItemResponseDto>> respuesta = await _loginServices.GetMenuByUserAsync();
+            List<MenuItemResponseDto> respuesta = await _loginServices.GetMenuByUserAsync();
 
-            return respuesta;
+            return new Response<List<MenuItemResponseDto>>(respuesta);
         }
     }
 }
