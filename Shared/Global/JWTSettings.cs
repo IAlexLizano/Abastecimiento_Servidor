@@ -1,4 +1,4 @@
-﻿namespace AuthApplication.DTOs
+﻿namespace Shared.Global
 {
     public class JWTSettings
     {
