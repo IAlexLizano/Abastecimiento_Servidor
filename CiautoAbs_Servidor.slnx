@@ -4,26 +4,45 @@
     <Project Path="Mapping/Mapping.csproj" Id="73c2c833-9230-42a0-a7c0-b750eedb4ac4" />
   </Folder>
   <Folder Name="/src/" />
-  <Folder Name="/src/Core/">
-    <Project Path="AuthApplication/AuthApplication.csproj" Id="e08a01a9-e9b4-4145-b125-6d48c45ca1d2" />
-  </Folder>
+  <Folder Name="/src/Core/" />
   <Folder Name="/src/Core/Application/">
-    <Project Path="TestApplication/TestApplication.csproj" Id="b1218767-a1bc-4fd1-8ad2-59f88277793c" />
+    <Project Path="AuthApplication/AuthApplication.csproj" Id="e08a01a9-e9b4-4145-b125-6d48c45ca1d2" />
+    <Project Path="ComponentsApplication/ComponentsApplication.csproj" Id="ffa3c35a-d7ba-4bfd-b968-307d96b506f2" />
+    <Project Path="GeneralApplication/GeneralApplication.csproj" Id="09413dcb-ede5-4afd-9df9-4f268aae73f7" />
+    <Project Path="NoveltyApplication/NoveltyApplication.csproj" Id="a6e77578-e8dd-4d4e-83bc-e04c6ee8db77" />
+    <Project Path="OpeningApplication/OpeningApplication.csproj" Id="fdbab2f7-3b36-4fd7-82f8-9ad5572208e5" />
+    <Project Path="PreOpeningApplication/PreOpeningApplication.csproj" Id="05b751f4-4995-4034-9665-364510104837" />
+    <Project Path="SupplyingApplication/SupplyingApplication.csproj" Id="36c7c5be-911c-408c-8bfe-9506f46f7b74" />
   </Folder>
   <Folder Name="/src/Core/Domain/">
     <Project Path="Domains/Domains.shproj" Id="43ea0e14-b52a-419d-bbf9-95d93ae5303c" />
-    <Project Path="TestDomain/TestDomain.csproj" Id="a4e4480b-25ad-4037-998a-91b1ed0c7e0c" />
   </Folder>
   <Folder Name="/src/Infrastructure/">
-    <Project Path="Auth/Auth.csproj" Id="c3d241c1-9efd-4533-9477-674a691aebc7" />
+    <Project Path="Identity/Identity.csproj" Id="c3d241c1-9efd-4533-9477-674a691aebc7" />
     <Project Path="Shared/Shared.csproj" Id="91a9d9f0-fb30-4442-b548-e90efe556131" />
   </Folder>
   <Folder Name="/src/Infrastructure/Persistance/">
+    <Project Path="ComponentsPersistance/ComponentsPersistance.csproj" Id="ed47d6b4-bd19-47c1-b0ef-537ca84f0701" />
+    <Project Path="GeneralPersistance/GeneralPersistance.csproj" Id="eefea70a-b027-4f13-9d53-f6843a58d4a5" />
+    <Project Path="NoveltyPersistance/NoveltyPersistance.csproj" Id="0308c1de-07a9-49df-87fc-3aca292855f2" />
+    <Project Path="OpeningPersistance/OpeningPersistance.csproj" Id="99dd108d-eafc-4d18-80f9-d44392d316df" />
     <Project Path="Persistance/Persistance.shproj" Id="970a6e40-50a0-4a9b-a9ea-3f9699aea6e7" />
-    <Project Path="TestPersistance/TestPersistance.csproj" />
+    <Project Path="PreOpeningPersistance/PreOpeningPersistance.csproj" Id="3af100db-0b50-4214-9a9f-d28a84cfc3e7" />
+    <Project Path="SupplyingPersistance/SupplyingPersistance.csproj" Id="c3078cac-8bc7-4d64-be73-5c3f05e618c1" />
   </Folder>
   <Folder Name="/src/Presentation/">
     <Project Path="MS_AuthCommand/MS_AuthCommand.csproj" Id="d05cd409-d532-4807-b969-11ab12c4e197" />
     <Project Path="MS_AuthQuery/MS_AuthQuery.csproj" Id="7c9efae6-453f-4106-b99c-aa409ec04dc7" />
+    <Project Path="MS_ComponentsCommand/MS_ComponentsCommand.csproj" Id="1aed80fd-acb9-45e5-ab54-e2a5301263bd" />
+    <Project Path="MS_ComponentsQuery/MS_ComponentsQuery.csproj" Id="f0b54fee-7a9d-4cf3-86aa-e7bc2ef71c30" />
+    <Project Path="MS_GeneralQuery/MS_GeneralQuery.csproj" Id="dc0c0411-2dc1-4e07-906a-a293e499e0c7" />
+    <Project Path="MS_NoveltyCommand/MS_NoveltyCommand.csproj" Id="907c7c54-f07e-4561-860e-b33a3f84b129" />
+    <Project Path="MS_NoveltyQuery/MS_NoveltyQuery.csproj" Id="9a3d9871-7ada-475f-95a6-184f74e84ff0" />
+    <Project Path="MS_OpeningCommand/MS_OpeningCommand.csproj" Id="4eeb3f4d-9389-4ea1-8a9e-ea5f26fe32fe" />
+    <Project Path="MS_OpeningQuery/MS_OpeningQuery.csproj" Id="d5b7b4dd-75d3-4181-aca6-a323efc0b49a" />
+    <Project Path="MS_PreOpeningCommand/MS_PreOpeningCommand.csproj" Id="724b7507-a9e0-45a0-8b57-c6135987fa6b" />
+    <Project Path="MS_PreOpeningQuery/MS_PreOpeningQuery.csproj" Id="67601b9a-bd27-4b5b-86e4-bf0fd01a5a10" />
+    <Project Path="MS_SupplyingCommand/MS_SupplyingCommand.csproj" Id="23d030d7-2172-4599-94b2-f6c46f411339" />
+    <Project Path="MS_SupplyingQuery/MS_SupplyingQuery.csproj" Id="70f0729e-18e2-4b8d-baa1-5dc298d5d4cf" />
   </Folder>
 </Solution>
