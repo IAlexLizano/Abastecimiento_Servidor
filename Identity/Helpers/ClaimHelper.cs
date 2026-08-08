@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace Auth.Helpers
+namespace Identity.Helpers
 {
     /// <summary>
     /// Helper para manejo de claims y tokens
@@ -48,7 +48,34 @@ namespace Auth.Helpers
         /// </summary>
         public static bool HasRole(IEnumerable<Claim> claims, string roleName)
         {
-            return GetRoles(claims).Any(r => r.Contains(roleName, StringComparison.OrdinalIgnoreCase));
+            if (string.IsNullOrWhiteSpace(roleName))
+                return false;
+
+            return claims?.Any(c => c.Type == ClaimTypes.Role && c.Value.Contains(roleName)) ?? false;
+        }
+
+        /// <summary>
+        /// Obtiene el email del usuario desde los claims
+        /// </summary>
+        public static string? GetEmail(IEnumerable<Claim> claims)
+        {
+            return GetClaimValue(claims, ClaimTypes.Email);
+        }
+
+        /// <summary>
+        /// Obtiene el nombre completo del usuario desde los claims
+        /// </summary>
+        public static string? GetFullName(IEnumerable<Claim> claims)
+        {
+            return GetClaimValue(claims, "FullName");
+        }
+
+        /// <summary>
+        /// Obtiene la cédula del usuario desde los claims
+        /// </summary>
+        public static string? GetIdCard(IEnumerable<Claim> claims)
+        {
+            return GetClaimValue(claims, "IdCard");
         }
     }
 }

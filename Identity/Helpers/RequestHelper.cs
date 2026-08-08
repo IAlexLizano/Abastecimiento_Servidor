@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace Auth.Helpers
+namespace Identity.Helpers
 {
     /// <summary>
     /// Helper para obtener información de la solicitud HTTP
@@ -47,6 +47,22 @@ namespace Auth.Helpers
                 return "unknown";
 
             return context.Request.Headers["User-Agent"].ToString();
+        }
+
+        /// <summary>
+        /// Obtiene el método HTTP de la solicitud
+        /// </summary>
+        public static string GetHttpMethod(HttpContext context)
+        {
+            return context?.Request.Method ?? "unknown";
+        }
+
+        /// <summary>
+        /// Obtiene la ruta de la solicitud
+        /// </summary>
+        public static string GetPath(HttpContext context)
+        {
+            return context?.Request.Path.ToString() ?? "unknown";
         }
     }
 }
