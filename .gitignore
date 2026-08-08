@@ -275,9 +275,22 @@ App_Data/
 # ==========================================
 
 # Publish results
-PublishProfiles/
-publish/
-PublishOutput/
+[Pp]ublish/
+[Pp]ublish[Oo]utput/
+[Pp]ublish[Pp]rofiles/
+[Pp]ublish[Rr]esults/
+**/bin/Release/*/publish/
+**/bin/Debug/*/publish/
+*.pubxml.user
+*.publishsettings
+*.deploymanifest
+*.Publish.xml
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.Local.json
+appsettings.*.local.json
+web.config
+Web.config
 bin/
 obj/
 
